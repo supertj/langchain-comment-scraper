@@ -62,7 +62,8 @@ _RECORD_CHECKS: dict[str, Callable[[object], bool]] = {
     "is_op": lambda value: isinstance(value, bool),
     "body": _is_text,
     "permalink": _is_text,
-    "comment_state": _is_text,
+    # An unknown state would otherwise be skipped as if deleted, silently losing the comment.
+    "comment_state": lambda value: value in ("normal", "deleted", "removed"),
     "subreddit": _is_text_or_none,
 }
 

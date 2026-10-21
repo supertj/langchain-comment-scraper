@@ -88,6 +88,7 @@ def numbered(doc):
     score = "hidden" if meta["score"] is None else meta["score"]
     return f"[c{meta['comment_number']}]{reply} (score {score})\n{doc.page_content}"
 
+
 thread = "\n\n".join(numbered(doc) for doc in comments)
 prompt = (
     f"{post.page_content}\n\n{thread}\n\n"
@@ -102,7 +103,7 @@ To check a claim, search the Markdown export of the same thread for its number.
 
 ## Search the comments
 
-`embeddings` is any LangChain embeddings model.
+`embeddings` is any LangChain embeddings model. `InMemoryVectorStore` also needs NumPy (`pip install numpy`).
 
 ```python
 from langchain_core.vectorstores import InMemoryVectorStore

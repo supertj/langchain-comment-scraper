@@ -303,6 +303,13 @@ def test_files_that_are_not_exports_are_refused(tmp_path: Path, content: str) ->
             {"meta": META, "records": [record(None, None), record("c1", "t1", score="12")]},
             "record field score",
         ),
+        (
+            {
+                "meta": META,
+                "records": [record(None, None), record("c1", "t1", comment_state="normla")],
+            },
+            "record field comment_state",
+        ),
         ({"meta": META, "records": [record("c1", "t1")]}, "0 post records"),
         (
             {"meta": META, "records": [record(None, None), record("a", "t1"), record("a", "t1")]},
