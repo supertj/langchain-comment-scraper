@@ -1,0 +1,134 @@
+{
+  "which-crm.json": [
+    {
+      "thread_id": "crm1",
+      "comments": [
+        {
+          "comment_id": "a1",
+          "number": 1,
+          "markdown_line": "[c1] (score 214, 1d ago)"
+        },
+        {
+          "comment_id": "a2",
+          "number": 2,
+          "markdown_line": "[c2] reply to [c1] (score 88, 1d ago, OP)"
+        },
+        {
+          "comment_id": "a3",
+          "number": 3,
+          "markdown_line": "[c3] reply to [c2] (score 31, 1d ago, edited)"
+        },
+        {
+          "comment_id": "a8",
+          "number": 4,
+          "markdown_line": "[c4] reply to [c1] (score 2, 1d ago)"
+        },
+        {
+          "comment_id": "a4",
+          "number": 5,
+          "markdown_line": "[c5] (score hidden, 1d ago)"
+        },
+        {
+          "comment_id": "a5",
+          "number": 6,
+          "markdown_line": "[c6] (score 3, 1d ago)"
+        },
+        {
+          "comment_id": "a6",
+          "number": 7,
+          "markdown_line": "[c7] reply to [c6] (score 12, 1d ago)"
+        },
+        {
+          "comment_id": "a7",
+          "number": 8,
+          "markdown_line": "[c8] reply to a comment not fetched (score 5, 1d ago)"
+        }
+      ]
+    }
+  ],
+  "which-crm-nested.json": [
+    {
+      "thread_id": "crm1",
+      "comments": [
+        {
+          "comment_id": "a1",
+          "number": 1,
+          "markdown_line": "[c1] (score 214, 1d ago)"
+        },
+        {
+          "comment_id": "a2",
+          "number": 2,
+          "markdown_line": "[c2] reply to [c1] (score 88, 1d ago, OP)"
+        },
+        {
+          "comment_id": "a3",
+          "number": 3,
+          "markdown_line": "[c3] reply to [c2] (score 31, 1d ago, edited)"
+        },
+        {
+          "comment_id": "a8",
+          "number": 4,
+          "markdown_line": "[c4] reply to [c1] (score 2, 1d ago)"
+        },
+        {
+          "comment_id": "a4",
+          "number": 5,
+          "markdown_line": "[c5] (score hidden, 1d ago)"
+        },
+        {
+          "comment_id": "a5",
+          "number": 6,
+          "markdown_line": "[c6] (score 3, 1d ago)"
+        },
+        {
+          "comment_id": "a6",
+          "number": 7,
+          "markdown_line": "[c7] reply to [c6] (score 12, 1d ago)"
+        },
+        {
+          "comment_id": "a7",
+          "number": 8,
+          "markdown_line": "[c8] reply to a comment not fetched (score 5, 1d ago)"
+        }
+      ]
+    }
+  ],
+  "pricing-nested.json": [
+    {
+      "thread_id": "price1",
+      "comments": [
+        {
+          "comment_id": "b1",
+          "number": 1,
+          "markdown_line": "[c1] (score 12, 22h ago)"
+        },
+        {
+          "comment_id": "b2",
+          "number": 2,
+          "markdown_line": "[c2] reply to [c1] (score 4, 22h ago)"
+        }
+      ]
+    }
+  ],
+  "hacker-news-two-threads.json": [
+    {
+      "thread_id": "40001",
+      "comments": [
+        {
+          "comment_id": "40011",
+          "number": 1,
+          "markdown_line": "[c1] (score hidden, 19h ago)"
+        },
+        {
+          "comment_id": "40012",
+          "number": 2,
+          "markdown_line": "[c2] reply to [c1] (score hidden, 19h ago)"
+        }
+      ]
+    },
+    {
+      "thread_id": "40002",
+      "comments": []
+    }
+  ]
+}
