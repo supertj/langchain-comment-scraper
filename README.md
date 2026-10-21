@@ -75,7 +75,7 @@ Two options:
 
 Exports don't contain usernames, so there's no author field. Names someone typed inside a comment are kept as written.
 
-All values are strings, numbers, booleans or `None`, which vector stores accept as metadata.
+All values are strings, numbers, booleans or `None`, and nothing is nested. If your vector store rejects `None` values, drop those keys before you add the Documents.
 
 ## Ask a model about the thread
 
@@ -138,7 +138,7 @@ make test   # unit tests, with network access disabled
 make lint   # ruff and mypy
 ```
 
-The fixtures in `tests/fixtures` are made-up threads written by the extension's own export code, together with the `[cN]` line the Markdown export prints for each comment. `make fixtures` rebuilds them; it needs a checkout of [comment-scraper-mcp](https://github.com/supertj/comment-scraper-mcp) next to this repository.
+The fixtures in `tests/fixtures` are made-up threads written by the extension's own export code, together with the `[cN]` line the Markdown export prints for each comment. `make fixtures` rebuilds them; it needs a checkout of [comment-scraper-mcp](https://github.com/supertj/comment-scraper-mcp) next to this repository, with its dependencies installed.
 
 To check real exports, which aren't committed, run `CS_REAL_EXPORTS_DIR=/path/to/exports uv run pytest tests/unit_tests/test_real_exports.py`. If a thread's `.md` export sits next to its `.json`, the comment numbers are compared line by line.
 
