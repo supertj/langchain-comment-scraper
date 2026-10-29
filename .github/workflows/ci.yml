@@ -10,21 +10,29 @@ permissions:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
         include:
           # Oldest supported Python with the oldest langchain-core the package allows.
-          - python: "3.10"
+          - os: ubuntu-latest
+            python: "3.10"
             resolution: lowest-direct
-          - python: "3.13"
+          - os: ubuntu-latest
+            python: "3.13"
             resolution: highest
+          # conda-forge builds the package on Windows too; path handling differs there.
+          # asyncio's socketpair falls back to loopback TCP on Windows, so allow loopback only.
+          - os: windows-latest
+            python: "3.13"
+            resolution: highest
+            socket_flags: --allow-hosts=127.0.0.1,::1
     steps:
       - uses: actions/checkout@v5
       - uses: astral-sh/setup-uv@v6
       - name: Lint and type check
-        if: matrix.resolution == 'highest'
+        if: matrix.os == 'ubuntu-latest' && matrix.resolution == 'highest'
         run: |
           uv run --python ${{ matrix.python }} ruff check .
           uv run --python ${{ matrix.python }} ruff format --check .
@@ -32,7 +40,7 @@ jobs:
       - name: Unit tests (network disabled)
         run: >
           uv run --python ${{ matrix.python }} --resolution ${{ matrix.resolution }}
-          pytest --disable-socket --allow-unix-socket tests/unit_tests
+          pytest ${{ matrix.socket_flags || '--disable-socket --allow-unix-socket' }} tests/unit_tests
       - name: Build
-        if: matrix.resolution == 'highest'
+        if: matrix.os == 'ubuntu-latest' && matrix.resolution == 'highest'
         run: uv build
